@@ -40,6 +40,7 @@ def print_definition(url, sy, ex):
 	api = API(url)
 	data = api.get_response()
 
+	#orint(data)
 	if(type(data) == dict):
 		Printer.default_print(f"[red]{data['message']}[/red]")
 		return
