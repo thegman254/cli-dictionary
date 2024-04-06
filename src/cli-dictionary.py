@@ -40,12 +40,11 @@ def print_definition(url, sy, ex):
 	api = API(url)
 	data = api.get_response()
 
-	# print(data)
-	if(data[0]['meanmings'] != None):
-		meanings = data[0]['meanings']
-	else:
-		Printer.default_print('[red]No meanings found[/red]')
+	if(type(data) == dict):
+		Printer.default_print(f"[red]{data['message']}[/red]")
 		return
+	
+	meanings = data[0]['meanings']
 
 	for index, meaning in enumerate(meanings, 1):
 		print_meanings(meaning, index)
